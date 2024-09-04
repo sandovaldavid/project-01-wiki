@@ -1,17 +1,14 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Encyclopedia
+	{{ title }}
 {% endblock %}
 
 {% block body %}
-    <h1>All Pages</h1>
-
-    <ul>
-        {% for entry in entries %}
-            <!--- This is the link to the entry page --->
+    <h1>Search: {{query}}</h1>
+    <ol>
+        {% for entry in content %}
             <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
         {% endfor %}
-    </ul>
-
+    </ol>
 {% endblock %}
