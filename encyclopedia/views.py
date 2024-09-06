@@ -9,14 +9,14 @@ def index(request):
     if query:
         content = util.get_entry(query)
         if content:
-            return render(request, "encyclopedia/entry/entry.html", {
+            return render(request, "encyclopedia/entry/index.html", {
                 "title": query.upper(),
                 "content": content
             })
         else:
             entries = [entry for entry in util.list_entries() if query.lower() in entry.lower()]
             if entries:
-                return render(request, "encyclopedia/search/search.html", {
+                return render(request, "encyclopedia/search/index.html", {
                     "title": "Search",
                     "content": entries,
                     "query": query
@@ -30,7 +30,7 @@ def index(request):
 def entry(request, title):
     content = util.get_entry(title)
     if content:
-        return render(request, "encyclopedia/entry/entry.html", {
+        return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
             "content": content
         })
@@ -44,12 +44,25 @@ def new_page(request):
         title = request.POST["title"].capitalize()
         content = request.POST["content"]
         if util.get_entry(title):
-            return render(request, "encyclopedia/new/new.html", {
+            return render(request, "encyclopedia/new/index.html", {
                 "error": "<span class='error'>Entry already exists!</span>"
             })
         util.save_entry(title, content)
-        return render(request, "encyclopedia/entry/entry.html", {
+        return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
             "content": content
         })
-    return render(request, "encyclopedia/new/new.html")
+    return render(request, "encyclopedia/new/index.html")
+
+def edit_page(request, title):
+    if request.method == "POST":
+        content = request.POST["content"]
+        util.save_entry(title, content)
+        return render(request, "encyclopedia/entry/index.html", {
+            "title": title.upper(),
+            "content": content
+        })
+    return render(request, "encyclopedia/edit/index.html", {
+        "title": title,
+        "content": util.get_entry(title)
+    })
