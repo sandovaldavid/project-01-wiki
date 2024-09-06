@@ -66,3 +66,13 @@ def edit_page(request, title):
         "title": title,
         "content": util.get_entry(title)
     })
+
+def random_page(request):
+    import random
+    entries = util.list_entries()
+    title = random.choice(entries)
+    content = util.get_entry(title)
+    return render(request, "encyclopedia/entry/index.html", {
+        "title": title.upper(),
+        "content": content
+    })
