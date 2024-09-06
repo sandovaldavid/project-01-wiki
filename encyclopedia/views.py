@@ -54,7 +54,6 @@ def new_page(request):
         })
     return render(request, "encyclopedia/new/index.html")
 
-# TODO: Implement the edit_page function (review the instructions above issue #5)
 def edit_page(request, title):
     if request.method == "POST":
         content = request.POST["content"]
