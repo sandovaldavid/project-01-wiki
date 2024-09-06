@@ -1,6 +1,6 @@
-from django.http import Http404
-from django.shortcuts import render
 
+from django.shortcuts import render
+import markdown2
 from . import util
 
 
@@ -8,10 +8,11 @@ def index(request):
     query = request.GET.get('q')
     if query:
         content = util.get_entry(query)
+        content= markdown2.markdown(content)
         if content:
             return render(request, "encyclopedia/entry/index.html", {
                 "title": query.upper(),
-                "content": content
+                "content":content
             })
         else:
             entries = [entry for entry in util.list_entries() if query.lower() in entry.lower()]
@@ -29,6 +30,7 @@ def index(request):
 
 def entry(request, title):
     content = util.get_entry(title)
+    content = markdown2.markdown(content)
     if content:
         return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
@@ -43,6 +45,7 @@ def new_page(request):
     if request.method == "POST":
         title = request.POST["title"].capitalize()
         content = request.POST["content"]
+        content = markdown2.markdown(content)
         if util.get_entry(title):
             return render(request, "encyclopedia/new/index.html", {
                 "error": "<span class='error'>Entry already exists!</span>"
@@ -58,6 +61,7 @@ def edit_page(request, title):
     if request.method == "POST":
         content = request.POST["content"]
         util.save_entry(title, content)
+        content = markdown2.markdown(content)
         return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
             "content": content
