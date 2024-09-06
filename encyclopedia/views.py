@@ -63,7 +63,7 @@ def edit_page(request, title):
             "title": title.upper(),
             "content": content
         })
-    return render(request, "encyclopedia/edit/edit.html", {
+    return render(request, "encyclopedia/edit/index.html", {
         "title": title,
         "content": util.get_entry(title)
     })
