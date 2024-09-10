@@ -8,7 +8,7 @@ def index(request):
     query = request.GET.get('q')
     if query:
         content = util.get_entry(query)
-        content= markdown2.markdown(content)
+        content= util.markdown_to_html_v1(content)
         if content:
             return render(request, "encyclopedia/entry/index.html", {
                 "title": query.upper(),
@@ -30,7 +30,7 @@ def index(request):
 
 def entry(request, title):
     content = util.get_entry(title)
-    content = markdown2.markdown(content)
+    content = util.markdown_to_html_v1(content)
     if content:
         return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
@@ -45,7 +45,7 @@ def new_page(request):
     if request.method == "POST":
         title = request.POST["title"].capitalize()
         content = request.POST["content"]
-        content = markdown2.markdown(content)
+        content = util.markdown_to_html_v1(content)
         if util.get_entry(title):
             return render(request, "encyclopedia/new/index.html", {
                 "error": "<span class='error'>Entry already exists!</span>"
@@ -61,7 +61,7 @@ def edit_page(request, title):
     if request.method == "POST":
         content = request.POST["content"]
         util.save_entry(title, content)
-        content = markdown2.markdown(content)
+        content = util.markdown_to_html_v1(content)
         return render(request, "encyclopedia/entry/index.html", {
             "title": title.upper(),
             "content": content
@@ -76,6 +76,8 @@ def random_page(request):
     entries = util.list_entries()
     title = random.choice(entries)
     content = util.get_entry(title)
+    content = util.markdown_to_html_v1(content)
+    util.test_markdown_to_html()
     return render(request, "encyclopedia/entry/index.html", {
         "title": title.upper(),
         "content": content
