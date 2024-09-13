@@ -5,6 +5,6 @@
 {% endblock %}
 
 {% block body %}
+    <button id="edit" class="btn btn-primary" onclick="location.href='{% url 'edit_page' title %}'">Edit</button>
     {{ content|safe }}
-    <button class="btn btn-primary" onclick="location.href='{% url 'edit_page' title %}'">Edit</button>
 {% endblock %}
