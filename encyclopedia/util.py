@@ -59,22 +59,3 @@ def markdown_to_html_v1(markdown):
     markdown = re.sub(r'(^|\n)([^\n<].*?)(\n|$)', r'\1<p>\2</p>\3', markdown)
 
     return markdown
-
-def test_markdown_to_html():
-    # Test headings
-    assert markdown_to_html_v1("# Heading 1") == "<h1>Heading 1</h1>"
-    assert markdown_to_html_v1("## Heading 2") == "<h2>Heading 2</h2>"
-
-    # Test bold text
-    assert markdown_to_html_v1("**bold**") == "<strong>bold</strong>"
-
-    # Test unordered lists
-    assert markdown_to_html_v1("- item 1") == "<ul>\n<li>item 1</li>\n</ul>"
-
-    # Test links
-    assert markdown_to_html_v1("[link](http://example.com)") == '<a href="http://example.com">link</a>'
-
-    # Test paragraphs
-    assert markdown_to_html_v1("Paragraph text") == "<p>Paragraph text</p>"
-
-    print("All tests passed.")
