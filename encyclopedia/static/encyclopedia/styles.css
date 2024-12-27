@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    background-color: white;
 }
 
 code {
@@ -17,6 +16,7 @@ textarea {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
+    background: #BCCCDC;
 }
 
 .search {
@@ -26,13 +26,20 @@ textarea {
 }
 
 .sidebar {
-    background-color: #f0f0f0;
+    background: #9AA6B2;
     height: 100vh;
-    padding: 20px;
+    padding-left: 1.75rem;
 }
 
 .sidebar h2 {
     margin-top: 5px;
+}
+
+.sidebar > form {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 ul{
