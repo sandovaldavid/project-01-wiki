@@ -6,12 +6,16 @@ from . import util
 def index(request):
     query = request.GET.get('q')
     if query:
+        query = query.upper()
         content = util.get_entry(query)
-        content= util.markdown_to_html_v1(content)
+        if content is None:
+            content = ""
+        content = content
+        content = util.markdown_to_html_v1(str(content))
         if content:
             return render(request, "encyclopedia/entry/index.html", {
                 "title": query.upper(),
-                "content":content
+                "content": content
             })
         else:
             entries = [entry for entry in util.list_entries() if query.lower() in entry.lower()]
