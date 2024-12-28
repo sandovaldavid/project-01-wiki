@@ -4,6 +4,10 @@
 <html lang="en">
     <head>
         <title>{% block title %}{% endblock %}</title>
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
         <link
             rel="stylesheet"
             href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -22,8 +26,8 @@
     </head>
     <body>
         <div class="container-fluid">
-            <div class="row">
-                <nav class="sidebar col-lg-2 col-md-3">
+            <div class="row flex-column flex-md-row">
+                <nav class="sidebar col-12 col-md-3 col-lg-2 p-3">
                     <a href="/" class="text-center"><h2>Wiki</h2></a>
                     <form
                         action="{% url 'index' %}"
@@ -57,7 +61,7 @@
                         >Random Page</a
                     >
                 </nav>
-                <main class="main col-lg-10 col-md-9">
+                <main class="main col-12 col-md-9 col-lg-10">
                     {% block body %} {% endblock %}
                 </main>
             </div>
