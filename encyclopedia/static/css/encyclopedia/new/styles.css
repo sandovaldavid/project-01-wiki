@@ -1,18 +1,20 @@
-.form-group{
+.form-group {
     font-size: 20px;
-    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono',
+        'Bitstream Vera Sans Mono', monospace;
     font-weight: bold;
 }
 
-.form-control{
+.form-control {
     background: aliceblue;
 }
-form{
+form {
     padding: 0 20px 0 10px;
 }
-.error{
+.error {
     color: red;
     font-size: 15px;
-    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', monospace;
+    font-family: 'Consolas', 'Menlo', 'DejaVu Sans Mono',
+        'Bitstream Vera Sans Mono', monospace;
     font-weight: bold;
 }
