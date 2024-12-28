@@ -5,5 +5,7 @@
     "useTabs": false,
     "printWidth": 80,
     "trailingComma": "es5",
-    "plugins": ["prettier-plugin-django-template"]
+    "plugins": [
+        "prettier-plugin-django-template"
+    ]
 }
