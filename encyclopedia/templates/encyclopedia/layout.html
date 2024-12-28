@@ -1,69 +1,65 @@
 {% load static %}
 
-<!DOCTYPE html>
-
+<!doctype html>
 <html lang="en">
-	<head>
-		<title>{% block title %}{% endblock %}</title>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-			integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-			crossorigin="anonymous"
-		/>
-		<link
-			rel="stylesheet"
-			href="{% static '' %}"
-		/>
-		<link
-			href="{% static 'encyclopedia/entry/styles.css' %}"
-			rel="stylesheet"
-		/>
-	</head>
-	<body>
-		<div class="row backgr">
-			<div class="sidebar col-lg-2 col-md-3 rounded-4">
-				<a href="/" class="text-center"><h2>Wiki</h2></a>
-				<form
-					action="{% url 'index' %}"
-					method="GET"
-					class="mx-auto p-2"
-				>
-					<input
-						class="form-control fs-6"
-						type="text"
-						placeholder="Search Encyclopedia"
-						aria-label="Search"
-						name="q"
-					/>
-					<button
-						class="btn btn-success mt-2 px-5 py-1 rounded-pill"
-						type="submit"
-					>
-						Search
-					</button>
-				</form>
-				<div class="w-100">
-					<a href="{% url 'index' %}" class="w-100" type="button"
-						>Home</a
-					>
-					<a
-						href="{% url 'new_page' %}"
-						class="bg-red w-100"
-						type="button"
-						>Create New Page</a
-					>
-					<a
-						href="{% url 'random_page' %}"
-						class="bg-red w-100"
-						type="button"
-						>Random Page</a
-					>
-				</div>
-			</div>
-			<div class="main col-lg-10 col-md-9 rounded-4">
-				{% block body %} {% endblock %}
-			</div>
-		</div>
-	</body>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link
+            href="{% static 'css/encyclopedia/entry/styles.css' %}"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <nav class="sidebar col-lg-2 col-md-3">
+                    <a href="/" class="text-center"><h2>Wiki</h2></a>
+                    <form
+                        action="{% url 'index' %}"
+                        method="GET"
+                        class="mx-auto p-2"
+                    >
+                        <input
+                            class="form-control fs-6"
+                            type="text"
+                            placeholder="Search Encyclopedia"
+                            aria-label="Search"
+                            name="q"
+                        />
+                        <button
+                            class="btn btn-success mt-2 px-5 py-1 rounded-pill"
+                            type="submit"
+                        >
+                            Search
+                        </button>
+                    </form>
+                    <a href="{% url 'index' %}" class="w-100" type="button"
+                        >Home</a
+                    >
+                    <a href="{% url 'new_page' %}" class="w-100" type="button"
+                        >Create New Page</a
+                    >
+                    <a
+                        href="{% url 'random_page' %}"
+                        class="w-100"
+                        type="button"
+                        >Random Page</a
+                    >
+                </nav>
+                <main class="main col-lg-10 col-md-9">
+                    {% block body %} {% endblock %}
+                </main>
+            </div>
+        </div>
+        <footer class="footer">
+            <p>&copy; 2023 Wiki Project. All rights reserved.</p>
+        </footer>
+    </body>
 </html>
