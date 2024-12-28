@@ -16,18 +16,16 @@ def index(request):
                 "encyclopedia/entry/index.html",
                 {"title": query.upper(), "content": content},
             )
-        else:
-            entries = [
-                entry for entry in util.list_entries() if query.lower() in entry.lower()
-            ]
-            if entries:
-                return render(
-                    request,
-                    "encyclopedia/search/index.html",
-                    {"title": "Search", "content": entries, "query": query},
-                )
-            else:
-                return render(request, "errors/404.html", status=404)
+        entries = [
+            entry for entry in util.list_entries() if query.lower() in entry.lower()
+        ]
+        if entries:
+            return render(
+                request,
+                "encyclopedia/search/index.html",
+                {"title": "Search", "content": entries, "query": query},
+            )
+        return render(request, "errors/404.html", status=404)
     return render(request, "encyclopedia/index.html", {"entries": util.list_entries()})
 
 
@@ -43,7 +41,7 @@ def entry(request, title):
     return render(request, "errors/404.html", status=404)
 
 
-def page_no_found(request, exception):
+def page_no_found(request, _unused_exception):
     return render(request, "errors/404.html", status=404)
 
 
