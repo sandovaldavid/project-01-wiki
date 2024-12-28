@@ -1,9 +1,12 @@
+body {
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+}
+
 .sidebar {
     background: #343a40;
     color: white;
     padding: 1rem;
-}
-.row {
     height: 100vh;
 }
 
@@ -20,7 +23,6 @@
 }
 
 .main {
-    padding: 2rem 0;
     margin-bottom: 5rem;
 }
 
@@ -41,4 +43,15 @@
 
 .list-group-item .badge {
     margin-right: 10px;
+}
+
+@media (max-width: 767.98px) {
+    .main {
+        padding: 1rem;
+    }
+
+    .footer {
+        position: static;
+        margin-top: 2rem;
+    }
 }
