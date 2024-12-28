@@ -9,8 +9,7 @@ def index(request):
         content = util.get_entry(query)
         if content is None:
             content = ""
-        content = content
-        content = util.markdown_to_html_v1(str(content))
+        content = util.markdown_to_html_v1(content)
         if content:
             return render(
                 request,
@@ -34,12 +33,12 @@ def index(request):
 
 def entry(request, title):
     content = util.get_entry(title)
-    content = util.markdown_to_html_v1(content)
     if content:
+        content = util.markdown_to_html_v1(content)
         return render(
             request,
             "encyclopedia/entry/index.html",
-            {"title": title.upper(), "content": content},
+            {"title": title, "content": content},
         )
     return render(request, "errors/404.html", status=404)
 
@@ -52,7 +51,6 @@ def new_page(request):
     if request.method == "POST":
         title = request.POST["title"].capitalize()
         content = request.POST["content"]
-        content = util.markdown_to_html_v1(content)
         if util.get_entry(title):
             return render(
                 request,
@@ -60,6 +58,7 @@ def new_page(request):
                 {"error": "<span class='error'>Entry already exists!</span>"},
             )
         util.save_entry(title, content)
+        content = util.markdown_to_html_v1(content)
         return render(
             request,
             "encyclopedia/entry/index.html",
@@ -76,13 +75,16 @@ def edit_page(request, title):
         return render(
             request,
             "encyclopedia/entry/index.html",
-            {"title": title.upper(), "content": content},
+            {"title": title, "content": content},
         )
-    return render(
-        request,
-        "encyclopedia/edit/index.html",
-        {"title": title, "content": util.get_entry(title)},
-    )
+    content = util.get_entry(title)
+    if content:
+        return render(
+            request,
+            "encyclopedia/edit/index.html",
+            {"title": title, "content": content},
+        )
+    return render(request, "errors/404.html", status=404)
 
 
 def random_page(request):
@@ -92,7 +94,6 @@ def random_page(request):
     title = random.choice(entries)
     content = util.get_entry(title)
     content = util.markdown_to_html_v1(content)
-    util.test_markdown_to_html()
     return render(
         request,
         "encyclopedia/entry/index.html",
