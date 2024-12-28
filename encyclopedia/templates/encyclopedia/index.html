@@ -1,17 +1,20 @@
-{% extends "encyclopedia/layout.html" %}
+{% extends "encyclopedia/layout.html" %} 
 
-{% block title %}
-    Encyclopedia
-{% endblock %}
+{% block title %} Encyclopedia {% endblock %} 
 
 {% block body %}
-    <h1>All Pages</h1>
-
-    <ul>
+<div class="container mt-4">
+    <h1 class="mb-4 text-center text-white bg-dark p-3 rounded">All Pages</h1>
+    <div class="list-group">
         {% for entry in entries %}
-            <!--- This is the link to the entry page --->
-            <li><a href="wiki/{{ entry }}">{{ entry }}</a></li>
+        <a
+            href="wiki/{{ entry }}"
+            class="list-group-item list-group-item-action"
+        >
+            <span class="badge badge-secondary">{{ forloop.counter }}</span>
+            {{ entry }}
+        </a>
         {% endfor %}
-    </ul>
-
+    </div>
+</div>
 {% endblock %}
