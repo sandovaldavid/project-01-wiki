@@ -1,10 +1,16 @@
-{% extends "encyclopedia/layout.html" %}
-
-{% block title %}
-    {{ title }}
-{% endblock %}
-
-{% block body %}
-    <button id="edit" class="btn btn-primary" onclick="location.href='{% url 'edit_page' title %}'">Edit</button>
-    {{ content|safe }}
+{% extends "encyclopedia/layout.html" %} {% block title %} {{ title }}
+{%endblock %} {% block body %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-dark">{{ title }}</h1>
+        <button
+            id="edit"
+            class="btn btn-primary"
+            onclick="location.href='{% url 'edit_page' title %}'"
+        >
+            Edit
+        </button>
+    </div>
+    <div class="content bg-light p-4 rounded">{{ content|safe }}</div>
+</div>
 {% endblock %}
