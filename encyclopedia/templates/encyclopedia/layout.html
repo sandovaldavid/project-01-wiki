@@ -33,49 +33,56 @@
         />
     </head>
     <body>
-        <div class="container-fluid">
-            <div class="row flex-column flex-md-row">
-                <nav class="sidebar col-12 col-md-3 col-lg-2 p-3">
-                    <a href="/" class="text-center"><h2>Wiki</h2></a>
-                    <form
-                        action="{% url 'index' %}"
-                        method="GET"
-                        class="mx-auto p-2"
+        <div class="d-flex flex-column min-vh-100">
+            <div class="container-fluid flex-grow-1 d-flex">
+                <div class="row flex-grow-1 w-100">
+                    <nav
+                        class="sidebar col-12 col-md-3 col-lg-2 p-3 d-flex flex-column"
                     >
-                        <input
-                            class="form-control fs-6"
-                            type="text"
-                            placeholder="Search Encyclopedia"
-                            aria-label="Search"
-                            name="q"
-                        />
-                        <button
-                            class="btn btn-success mt-2 px-5 py-1 rounded-pill w-100"
-                            type="submit"
+                        <a href="/" class="text-center"><h2>Wiki</h2></a>
+                        <form
+                            action="{% url 'index' %}"
+                            method="GET"
+                            class="mx-auto p-2"
                         >
-                            Search
-                        </button>
-                    </form>
-                    <a href="{% url 'index' %}" class="w-100" type="button"
-                        >Home</a
-                    >
-                    <a href="{% url 'new_page' %}" class="w-100" type="button"
-                        >Create New Page</a
-                    >
-                    <a
-                        href="{% url 'random_page' %}"
-                        class="w-100"
-                        type="button"
-                        >Random Page</a
-                    >
-                </nav>
-                <main class="main col-12 col-md-9 col-lg-10">
-                    {% block body %} {% endblock %}
-                </main>
+                            <input
+                                class="form-control fs-6"
+                                type="text"
+                                placeholder="Search Encyclopedia"
+                                aria-label="Search"
+                                name="q"
+                            />
+                            <button
+                                class="btn btn-success mt-2 px-5 py-1 rounded-pill w-100"
+                                type="submit"
+                            >
+                                Search
+                            </button>
+                        </form>
+                        <a href="{% url 'index' %}" class="w-100" type="button"
+                            >Home</a
+                        >
+                        <a
+                            href="{% url 'new_page' %}"
+                            class="w-100"
+                            type="button"
+                            >Create New Page</a
+                        >
+                        <a
+                            href="{% url 'random_page' %}"
+                            class="w-100"
+                            type="button"
+                            >Random Page</a
+                        >
+                    </nav>
+                    <main class="main col-12 col-md-9 col-lg-10">
+                        {% block body %} {% endblock %}
+                    </main>
+                </div>
             </div>
+            <footer class="footer mt-auto py-3 bg-dark text-white text-center">
+                <p>&copy; 2023 Wiki Project. All rights reserved.</p>
+            </footer>
         </div>
-        <footer class="footer">
-            <p>&copy; 2023 Wiki Project. All rights reserved.</p>
-        </footer>
     </body>
 </html>
