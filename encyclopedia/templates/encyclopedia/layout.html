@@ -29,11 +29,11 @@
             <div class="container-fluid flex-grow-1 d-flex">
                 <div class="row flex-grow-1 w-100">
                     <!-- Sidebar for desktop -->
-                    <nav class="sidebar col-md-3 col-lg-2 d-none d-md-flex p-3 flex-column">
+                    <nav class="sidebar col-md-3 col-lg-2 d-none d-md-flex p-3 flex-column h">
                         <a href="/" class="text-center mb-4"><h2><i class="bi bi-book-half"></i> Wiki</h2></a>
                         <form action="{% url 'index' %}" method="GET" class="mx-auto p-2 mb-3">
                             <div class="input-group">
-                                <input class="form-control fs-6" type="text" placeholder="Search Encyclopedia" aria-label="Search" name="q" />
+                                <input class="form-control fs-6" type="text" placeholder="Search" aria-label="Search" name="q" />
                                 <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
                             </div>
                         </form>
@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- Main content -->
-                    <main class="main col-12 col-md-9 col-lg-10 py-4">
+                    <main class="col-12 col-md-9 col-lg-10 py-4">
                         {% block body %}
 
                         {% endblock %}
