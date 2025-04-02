@@ -1,8 +1,8 @@
 # Project1: Wiki 📚
 
 ![GitHub](https://img.shields.io/github/license/sandovaldavid/project1_wiki)
-![Python](https://img.shields.io/badge/Python-3.x-blue)
-![Django](https://img.shields.io/badge/Django-4.x-green)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Django](https://img.shields.io/badge/Django-5.1-green)
 ![Markdown](https://img.shields.io/badge/Markdown-5B5B5B)
 
 A Wikipedia-like web encyclopedia built as part of Harvard's CS50's Web Programming with Python and JavaScript course.
