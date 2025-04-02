@@ -1,78 +1,80 @@
-# Proyecto1: Wiki
+# Proyecto1: Wiki 📚
 
-## Descripción
+![GitHub](https://img.shields.io/github/license/sandovaldavid/project1_wiki)
+![Python](https://img.shields.io/badge/Python-3.10-blue)
+![Django](https://img.shields.io/badge/Django-5.1-green)
+![Markdown](https://img.shields.io/badge/Markdown-5B5B5B)
 
-Este proyecto es un sitio web tipo enciclopedia construido con Django, llamado "wiki", que contiene una única aplicación llamada "encyclopedia".
+Una enciclopedia web al estilo de Wikipedia construida como parte del curso CS50's Web Programming with Python and JavaScript de Harvard.
 
-### Configuración de URL:
-En ``encyclopedia/urls.py``, se define la configuración de URL de la aplicación. Por defecto, existe una ruta que está asociada a la función ``views.index``.
+*Leer esto en [Español](README_es.md) | [English](README.md)*
 
-### Funciones de Utilidad:
-En ``encyclopedia/util.py``, se encuentran tres funciones clave:
-- ``list_entries``: Devuelve una lista con los nombres de todas las entradas de la enciclopedia.
-- ``save_entry``: Guarda una nueva entrada en la enciclopedia, dado un título y contenido en Markdown.
-- ``get_entry``: Recupera una entrada por su título, devolviendo su contenido en Markdown o None si no existe.
+## 🚀 Descripción General
 
-Estas funciones pueden ser utilizadas en las vistas para interactuar con las entradas de la enciclopedia, las cuales se almacenan como archivos Markdown en el directorio ``entries/``.
+Esta enciclopedia basada en Django permite a los usuarios:
+- 📄 Ver entradas de la enciclopedia renderizadas desde Markdown a HTML
+- 🔍 Buscar entradas con sugerencias de coincidencia parcial
+- ✏️ Crear nuevas entradas utilizando sintaxis Markdown
+- 📝 Editar entradas existentes
+- 🎲 Navegar a entradas aleatorias
 
-### Vista Inicial:
-En ``encyclopedia/views.py``, actualmente existe una única vista, index, que devuelve una plantilla ``encyclopedia/index.html``. Esta vista proporciona a la plantilla una lista de todas las entradas de la enciclopedia obtenida a través de ``util.list_entries``.
-### Plantillas:
-- La plantilla ``encyclopedia/index.html`` se encuentra en ``encyclopedia/templates/encyclopedia/index.html``. Hereda de una plantilla base ``layout.html`` y especifica el título de la página, así como el contenido del cuerpo de la página: una lista desordenada de todas las entradas de la enciclopedia.
-- ``layout.html`` define la estructura general de la página, incluyendo una barra lateral con un campo de búsqueda (que actualmente no funciona), un enlace a la página principal, y enlaces para crear una nueva página o visitar una página aleatoria (que aún no funcionan).
+## 💻 Tecnologías Utilizadas
 
-Este esquema proporciona la base para desarrollar una enciclopedia web dinámica y extensible utilizando Django.
+- **Backend**: Python, Django
+- **Frontend**: HTML, CSS, JavaScript
+- **Formato de Contenido**: Markdown
+- **Herramientas de Desarrollo**: Git, Entorno Virtual
 
-Repository: [Project1: Wiki](https://github.com/sandovaldavid/project1_wiki.git)
-
-## Características
-
-- **Funcionalidad Principal**: Describe la funcionalidad principal del proyecto.
-- **Tecnologías Utilizadas**:
-  - Python
-  - Django
-  - HTML/CSS
-  - JavaScript
-
-## Instalación
-
-Instrucciones para instalar y ejecutar el proyecto en un entorno local:
+## 📦 Instalación
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/tuusuario/nombre-del-repositorio.git
-2. ***Entrar al directorio del proyecto:***
-    ```bash
-    cd nombre-del-repositorio
-3. ***Crear un entorno virtual:***
-    ```bash
-    python -m venv venv
-4. ***Instalar las dependencias:***
-    ```bash
-    pip install -r requirements.txt
-5. ***Ejecutar el proyecto:***
-    ```bash
+   git clone https://github.com/sandovaldavid/project1_wiki.git
+   ```
+
+2. **Configurar el entorno:**
+   ```bash
+   cd project1_wiki
+   python -m venv venv
+   source venv/bin/activate    # En Windows usar: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
+
+3. **Ejecutar la aplicación:**
+   ```bash
    python manage.py runserver
-## Uso
-Instrucciones básicas sobre cómo utilizar el proyecto una vez que esté en funcionamiento.
-1. Abre tu navegador y visita http://127.0.0.1:8000/.
-2. Interactúa con las funcionalidades disponibles según lo explicado en la sección de características.
+   ```
 
-## Estructura del proyecto
+4. **Acceder al sitio web en** `http://127.0.0.1:8000/`
+
+## 🔍 Estructura del Proyecto
+
 ```
-nombre-del-repositorio/
+project1_wiki/
 │
-├── encyclopedia/       # aplicacion secundaria de Django
+├── encyclopedia/       # Aplicación de Django con vistas, plantillas y utilidades
 ├── entries/            # Archivos Markdown de las entradas de la enciclopedia
-├── wiki/               # Aplicacion principal de Django
-├── .gitignore          # Archivos y directorios ignorados por Git
-├── manage.py           # Script de gestión de Django
-└── README.md           # Documentación del proyecto
-└── requirements.txt    # Dependencias del proyecto
+├── wiki/               # Configuración principal del proyecto Django
+├── .gitignore          # Especificaciones de archivos ignorados por Git
+├── manage.py           # Utilidad de línea de comandos de Django
+└── requirements.txt    # Dependencias de Python
 ```
-## Créditos
-Profesores: Brian Yu, David J. Malan
-Curso: CS50's Web Programming with Python and JavaScript
 
-## Contacto
-Para preguntas o sugerencias, puedes contactar a través de del siguiente [correo electrónico](mailto:sandovaldavid2201@gmail.com)
+## 🎓 Acerca de Este Proyecto
+
+Este proyecto es parte del curso **Harvard's CS50 Web Programming with Python and JavaScript**. Implementa una enciclopedia similar a Wikipedia utilizando Django, enfocándose en:
+- Renderizado del lado del servidor con plantillas de Django
+- Manipulación de contenido usando Python
+- Conversión de Markdown a HTML
+- Manejo y validación de formularios
+- Enrutamiento de URL y manejo de solicitudes
+
+## 👨‍💻 Créditos
+
+- **Profesores**: Brian Yu, David J. Malan
+- **Curso**: [CS50's Web Programming with Python and JavaScript](https://cs50.harvard.edu/web/)
+- **Desarrollador**: [David Sandoval](https://github.com/sandovaldavid)
+
+## 📬 Contacto
+
+Para preguntas o sugerencias, contáctame por [correo electrónico](mailto:xdevs@devprojects.tech)
