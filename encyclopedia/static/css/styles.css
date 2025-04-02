@@ -13,7 +13,7 @@ body {
 .sidebar {
     background: linear-gradient(135deg, #343a40, #212529);
     color: white;
-    height: 100%;
+    min-height: 100% !important;
     display: flex;
     flex-direction: column;
     transition: all 0.3s ease;
@@ -21,7 +21,6 @@ body {
     position: sticky;
     top: 0;
     overflow-y: auto;
-    max-height: 100vh;
     z-index: 1000;
 }
 
@@ -311,7 +310,7 @@ body {
 /* Media queries */
 @media (max-width: 767.98px) {
     .sidebar {
-        height: auto;
+        min-height: auto;
     }
 
     .footer {
