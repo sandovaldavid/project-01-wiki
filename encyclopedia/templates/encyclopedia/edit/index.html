@@ -161,6 +161,8 @@
         
                     // Scroll to preview
                     previewSection.scrollIntoView({ behavior: 'smooth' });
+                    
+                    window.dispatchEvent(new Event('resize'));
                 });
         })();
     </script>
