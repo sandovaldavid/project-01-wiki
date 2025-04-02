@@ -38,9 +38,9 @@
                             </div>
                         </form>
                         <div class="nav-links">
-                            <a href="{% url 'index' %}" class="nav-link w-100 mb-2"><i class="bi bi-house-door-fill me-2"></i> Home</a>
-                            <a href="{% url 'new_page' %}" class="nav-link w-100 mb-2"><i class="bi bi-plus-circle-fill me-2"></i> Create New Page</a>
-                            <a href="{% url 'random_page' %}" class="nav-link w-100 mb-2"><i class="bi bi-shuffle me-2"></i> Random Page</a>
+                            <a href="{% url 'index' %}" class="nav-link w-100 mb-2 {% if request.path == '/' %}active{% endif %}"><i class="bi bi-house-door-fill me-2"></i> Home</a>
+                            <a href="{% url 'new_page' %}" class="nav-link w-100 mb-2 {% if '/new' in request.path %}active{% endif %}"><i class="bi bi-plus-circle-fill me-2"></i> Create New Page</a>
+                            <a href="{% url 'random_page' %}" class="nav-link w-100 mb-2 {% if '/random' in request.path %}active{% endif %}"><i class="bi bi-shuffle me-2"></i> Random Page</a>
                         </div>
                     </nav>
 
@@ -58,9 +58,9 @@
                                 </div>
                             </form>
                             <div class="nav-links">
-                                <a href="{% url 'index' %}" class="nav-link mb-3"><i class="bi bi-house-door-fill me-2"></i> Home</a>
-                                <a href="{% url 'new_page' %}" class="nav-link mb-3"><i class="bi bi-plus-circle-fill me-2"></i> Create New Page</a>
-                                <a href="{% url 'random_page' %}" class="nav-link mb-3"><i class="bi bi-shuffle me-2"></i> Random Page</a>
+                                <a href="{% url 'index' %}" class="nav-link mb-3 {% if request.path == '/' %}active{% endif %}"><i class="bi bi-house-door-fill me-2"></i> Home</a>
+                                <a href="{% url 'new_page' %}" class="nav-link mb-3 {% if '/new' in request.path %}active{% endif %}"><i class="bi bi-plus-circle-fill me-2"></i> Create New Page</a>
+                                <a href="{% url 'random_page' %}" class="nav-link mb-3 {% if '/random' in request.path %}active{% endif %}"><i class="bi bi-shuffle me-2"></i> Random Page</a>
                             </div>
                         </div>
                     </div>

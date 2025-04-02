@@ -61,6 +61,13 @@ body {
     border-left: 4px solid #0dcaf0;
 }
 
+.nav-link.active {
+    background-color: #198754;
+    color: white !important;
+    font-weight: bold;
+    border-radius: 4px;
+}
+
 /* Card styling */
 .card {
     border: none;
@@ -239,6 +246,11 @@ body {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     padding-left: 20px;
+}
+
+.offcanvas .nav-link.active {
+    background-color: #198754;
+    color: white !important;
 }
 
 /* Search box styling */
