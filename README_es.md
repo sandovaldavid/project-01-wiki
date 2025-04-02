@@ -1,6 +1,6 @@
 # Proyecto1: Wiki 📚
 
-![GitHub](https://img.shields.io/github/license/sandovaldavid/project1_wiki)
+![GitHub](https://img.shields.io/github/license/sandovaldavid/project-01-wiki)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![Django](https://img.shields.io/badge/Django-5.1-green)
 ![Markdown](https://img.shields.io/badge/Markdown-5B5B5B)
@@ -29,12 +29,12 @@ Esta enciclopedia basada en Django permite a los usuarios:
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/sandovaldavid/project1_wiki.git
+   git clone https://github.com/sandovaldavid/project-01-wiki.git
    ```
 
 2. **Configurar el entorno:**
    ```bash
-   cd project1_wiki
+   cd project-01-wiki
    python -m venv venv
    source venv/bin/activate    # En Windows usar: venv\Scripts\activate
    pip install -r requirements.txt
